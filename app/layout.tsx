@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className=" text-center p-10">
+        <div className=" text-center p-10 bg-[#0d112b]">
           <Menu setActive={handleSetActive}>
             <MenuItem setActive={handleSetActive} active={activeItem} item="Home">
               <HoveredLink href="/">Link 1</HoveredLink>
