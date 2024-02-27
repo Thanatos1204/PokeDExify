@@ -10,7 +10,8 @@ import { div } from "three/examples/jsm/nodes/Nodes.js";
 export default function Home() {
   const words = [
     { text: "Hello", className: "text-red-500" },
-    { text: "World", className: "text-green-500" },
+    { text: "Welcome To", className: "text-green-500" },
+    { text: "PokeDExify", className: "text-green-500" }
   ];
 
   const numbers = Array.from({ length: 20 }, (_, index) => index + 1);
