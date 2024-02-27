@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { useState } from "react";
 import { Menu, MenuItem, ProductItem ,HoveredLink } from "./components/ui/navbar-menu"; // Update the path to your components
 import "./globals.css";
+import { FooterWithSocialLinks } from "./components/ui/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -41,6 +42,7 @@ export default function RootLayout({
           </Menu>
           </div>
         {children}
+        <FooterWithSocialLinks/>
       </body>
     </html>
   );

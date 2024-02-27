@@ -26,7 +26,7 @@ export default function Home() {
     </div>
       
 
-    <div className="  w-1/2 h-80 md:h-screen z-10 flex items-center justify-center">
+    <div className=" w-1/2 h-80 md:h-screen z-10 flex items-center justify-center">
       <div className="text-center">
         <TypewriterEffectSmooth
           words={words}
