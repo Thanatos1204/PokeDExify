@@ -1,13 +1,48 @@
-import React from 'react'
-import './style.css'
+'use client'
+// Import necessary React components and hooks
+import React, { useEffect } from 'react';
+import './style.css';
 
+function Page() {
+  useEffect(() => {
+    // Functionality from script.js
+    const CHEST = document.querySelector('#chest');
+    const SHAKE_BUTTON = document.querySelector('#shake-chest');
+    const OPEN_BUTTON = document.querySelector('#open-chest');
+    const RESET_BUTTON = document.querySelector('#reset-chest');
 
-function page() {
+    function shakeChest() {
+      CHEST.classList.add('shake-chest');
+      CHEST.classList.remove('open-chest');
+    }
+
+    function openChest() {
+      CHEST.classList.remove('shake-chest');
+      CHEST.classList.add('open-chest');
+    }
+
+    function resetChest() {
+      CHEST.classList.remove('open-chest');
+      CHEST.classList.remove('shake-chest');
+    }
+
+    SHAKE_BUTTON.addEventListener('click', shakeChest);
+    OPEN_BUTTON.addEventListener('click', openChest);
+    RESET_BUTTON.addEventListener('click', resetChest);
+
+    // Cleanup function
+    return () => {
+      SHAKE_BUTTON.removeEventListener('click', shakeChest);
+      OPEN_BUTTON.removeEventListener('click', openChest);
+      RESET_BUTTON.removeEventListener('click', resetChest);
+    };
+  }, []); // Empty dependency array ensures the effect runs only once
+
+  // JSX structure
   return (
     <div className='flex flex-col justify-center items-center bg-[#0d112b]'>
-        
       <div id="chest-wrap">
-  <svg id="chest" xmlns="http://www.w3.org/2000/svg" viewBox="-40 -40 500 400"><g id="bottom"><g id="chest_content"><polygon class="cls-1" points="333.25 177.4 321.28 130.84 85.18 130.84 72.4 179.73 333.25 177.4"/><polygon class="cls-2" points="88.39 133.06 88.39 174.47 77.28 174.47 88.39 133.06"/><polygon class="cls-2" points="330.53 174.23 318.51 174.23 318.51 132.84 330.53 174.23"/><ellipse class="cls-3" cx="203.66" cy="185.42" rx="126.38" ry="36.8"/></g><rect class="cls-2" x="70.26" y="175.64" width="275.85" height="130.18"/><rect class="cls-4" x="67.16" y="252.99" width="274" height="6.72"/><rect class="cls-4" y="174.47" width="410.31" height="44.75" rx="19.76"/><path class="cls-5" d="M0,197.11v2.34a19.76,19.76,0,0,0,19.76,19.76H390.55a19.76,19.76,0,0,0,19.76-19.76v-2.34Z"/>
+      <svg id="chest" xmlns="http://www.w3.org/2000/svg" viewBox="-40 -40 500 400"><g id="bottom"><g id="chest_content"><polygon class="cls-1" points="333.25 177.4 321.28 130.84 85.18 130.84 72.4 179.73 333.25 177.4"/><polygon class="cls-2" points="88.39 133.06 88.39 174.47 77.28 174.47 88.39 133.06"/><polygon class="cls-2" points="330.53 174.23 318.51 174.23 318.51 132.84 330.53 174.23"/><ellipse class="cls-3" cx="203.66" cy="185.42" rx="126.38" ry="36.8"/></g><rect class="cls-2" x="70.26" y="175.64" width="275.85" height="130.18"/><rect class="cls-4" x="67.16" y="252.99" width="274" height="6.72"/><rect class="cls-4" y="174.47" width="410.31" height="44.75" rx="19.76"/><path class="cls-5" d="M0,197.11v2.34a19.76,19.76,0,0,0,19.76,19.76H390.55a19.76,19.76,0,0,0,19.76-19.76v-2.34Z"/>
     <g id="left_handle"><rect class="cls-6" x="16.54" y="191.18" width="13.99" height="73.92" rx="7"/>
     <path class="cls-7" d="M23.53,191.18V265.1a7,7,0,0,0,7-7V198.17A7,7,0,0,0,23.53,191.18Z"/></g>
     <g id="right_handle"><rect class="cls-6" x="380.16" y="191.18" width="13.99" height="73.92" rx="7"/><path class="cls-7" d="M387.16,191.18V265.1a7,7,0,0,0,7-7V198.17A7,7,0,0,0,387.16,191.18Z"/>
@@ -25,15 +60,14 @@ function page() {
     <line id="lock_line" class="cls-34" x1="179.08" y1="172.24" x2="235.23" y2="172.24"/></g><g id="sparkles"><path id="sparkle_mid" class="cls-18" d="M122.08,94.44S102.62,89,98.26,70.62C93.61,89.79,74.45,94.44,74.45,94.44s18.39,4.39,23.81,23.82C102.39,98.57,122.08,94.44,122.08,94.44Z"/><path id="sparkle_left" class="cls-18" d="M106,144s-13.22-3.71-16.18-16.19C86.67,140.79,73.64,144,73.64,144s12.5,3,16.19,16.18C92.64,146.76,106,144,106,144Z"/><path id="sparkle_right" class="cls-18" d="M334.28,97.89S321.06,94.18,318.1,81.7c-3.16,13-16.19,16.19-16.19,16.19s12.5,3,16.19,16.18C320.9,100.7,334.28,97.89,334.28,97.89Z"/>
     </g>
     </svg>
-</div>
-
-<div id="button-wrap">
-  <div class="button" id="shake-chest">Shake</div>
-  <div class="button" id="open-chest">Open</div>
-  <div class="button" id="reset-chest">Reset</div>
-</div>
+      </div>
+      <div id="button-wrap">
+        <div className="button" id="shake-chest">Shake</div>
+        <div className="button" id="open-chest">Open</div>
+        <div className="button" id="reset-chest">Reset</div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default page
+export default Page;
