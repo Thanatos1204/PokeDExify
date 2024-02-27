@@ -13,6 +13,8 @@ export default function Home() {
     { text: "World", className: "text-green-500" },
   ];
 
+  const numbers = Array.from({ length: 20 }, (_, index) => index + 1);
+
   return (<>
     <div className="relative">
       
@@ -36,9 +38,10 @@ export default function Home() {
       </div>
      
       <div className="h-screen bg-black">
-        <div className=" h-fit w-fit ">
-        <EvervaultCard/>
-        <EvervaultCard/>
+        <div className="grid grid-cols-5 gap-4 ">
+        {numbers.map((number) => (
+        <EvervaultCard key={number} text={number.toString()} />
+      ))}
         </div>
         
       </div>
