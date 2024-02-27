@@ -5,7 +5,8 @@ import { Suspense } from 'react';
 import Model from './components/Model';
 import { TypewriterEffectSmooth } from "./components/ui/type-writer-effect"; 
 import { WavyBackground } from "./components/ui/wavy-background";
-import { EvervaultCard } from "./components/ui/ever-vault-card"; 
+import { EvervaultCard } from "./components/ui/ever-vault-card";
+import { FooterWithSocialLinks } from "./components/ui/footer";
 
 export default function Home() {
   const words = [
@@ -42,10 +43,17 @@ export default function Home() {
         {numbers.map((number) => (
         <EvervaultCard key={number} text={number.toString()} />
       ))}
+      
+      <div className=" w-lvw"> 
+          <FooterWithSocialLinks/>
+        </div>    
         </div>
-        
+              
       </div>
+        
     </div>
+
+    
     </>
   );
 }
